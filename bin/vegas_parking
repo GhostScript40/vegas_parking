@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './lib/VegasParking'
+require './lib/vegas_parking'
 
 VegasParking::CLI.new.call
