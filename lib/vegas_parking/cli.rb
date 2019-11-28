@@ -4,6 +4,7 @@ class VegasParking::CLI
     puts "Welcome to Vegas. How can I help you park today?"
     list_spots
     spots
+    goodbye
   end
   
   def list_spots
@@ -11,6 +12,22 @@ class VegasParking::CLI
   end
   
   def spots
-    puts "Please enter your spot selection."
+    puts "Please enter your spot selection, or exit to end session."
+    
+      input = nil
+    
+    while input != "exit"
+        input = gets.strip.downcase
+      case input
+        when "1"
+          puts "Great selection! Heres more info.."
+        when "2"
+          puts "Nice one! Check out this information.."
+      end
+    end
+  end
+  
+  def goodbye
+    puts "Thanks for stopping by :) . See ya nextinme!."
   end
 end  
