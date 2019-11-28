@@ -12,7 +12,7 @@ class VegasParking::CLI
   end
   
   def spots
-    puts "Please enter your spot selection, or exit to end session."
+    puts "Please enter your spot selection. Type 'list' for a list of spots, 'any' for a random selection, or exit to end session."
     
       input = nil
     
@@ -23,8 +23,24 @@ class VegasParking::CLI
           puts "Great selection! Heres more info.."
         when "2"
           puts "Nice one! Check out this information.."
+        when "list"
+          list_spots
+        when "any"
+          any_spot
+        else
+          puts "Your selection was not valid please choose one of the following selections from the menu:"
+          menu
       end
     end
+  end
+  
+  def any_spot
+    puts "Heres a nice one you may like! Check it out.."
+  end
+  
+  def menu
+    puts "1. List Spots"
+    puts "2. Any Spot"
   end
   
   def goodbye
