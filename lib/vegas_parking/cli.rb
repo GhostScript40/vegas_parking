@@ -9,7 +9,7 @@ class VegasParking::CLI
   
   def list_spots
     puts "Here is a list of all of the free parking spots at great locations!"
-    @parking = VegasParking::TheStrip.places
+    
   end
   
   def spots
