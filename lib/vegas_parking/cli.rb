@@ -3,6 +3,7 @@ class VegasParking::CLI
   def call
     puts "Welcome to Vegas. How can I help you park today?"
  spots
+ list_spots
  menu
  goodbye
   end
@@ -10,6 +11,10 @@ class VegasParking::CLI
   def list_spots
     puts "Here is a list of all of the free parking spots at great locations!"
         @places = VegasParking::TheStrip.places
+        
+        puts "MGM"
+        puts "Harrahs"
+        puts "SLS"
   end
   
   def spots
@@ -19,7 +24,8 @@ class VegasParking::CLI
     
     while input != "exit"
         input = gets.strip.downcase
-      case input
+    
+     case input
         when "1"
           puts "Great selection! Heres more info.."
         when "2"

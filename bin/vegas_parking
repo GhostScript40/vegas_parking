@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
 require './lib/vegas_parking'
+#require "bundler/setup"
+#require "vegas_parking"
 
 VegasParking::CLI.new.call
