@@ -2,14 +2,14 @@ class VegasParking::CLI
   
   def call
     puts "Welcome to Vegas. How can I help you park today?"
-    list_spots
-    spots
-    goodbye
+ spots
+ menu
+ goodbye
   end
   
   def list_spots
     puts "Here is a list of all of the free parking spots at great locations!"
-    
+    @places = VegasParking::TheStrip.places
   end
   
   def spots
