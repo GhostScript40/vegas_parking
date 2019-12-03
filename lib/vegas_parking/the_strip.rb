@@ -8,7 +8,7 @@ class VegasParking::TheStrip
  end
   
  # def scrape_spots
-   # spots = []
-    # spots
-     #end
+  #  spots = []
+   # spots
+    # end
   end
