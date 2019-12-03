@@ -11,11 +11,12 @@ class VegasParking::CLI
   def list_spots
     puts "Here is a list of all of the free parking spots at great locations!"
         @places = VegasParking::TheStrip.places
-        
+       # @places.each.with_index(1) do | place, i|        
         puts "MGM"
         puts "Harrahs"
         puts "SLS"
-  end
+  #end
+end
   
   def spots
     puts "Please enter your spot selection. Type 'list' for a list of spots, 'any' for a random selection, or exit to end session."
@@ -25,15 +26,14 @@ class VegasParking::CLI
     while input != "exit"
         input = gets.strip.downcase
     
-     case input
-        when "1"
-          puts "Great selection! Heres more info.."
-        when "2"
-          puts "Nice one! Check out this information.."
-        when "list"
-          list_spots
-        when "any"
+           if input.to_i > 0
+      puts @places[input.to_i-1]
+      elsif input == "list"
+        list_spots
+        elsif input == "any"
           any_spot
+        elsif input == "menu"
+          menu
         else
           puts "Your selection was not valid please choose one of the following selections from the menu:"
           menu
