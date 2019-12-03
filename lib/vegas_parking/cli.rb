@@ -9,7 +9,7 @@ class VegasParking::CLI
   
   def list_spots
     puts "Here is a list of all of the free parking spots at great locations!"
-    @places = VegasParking::TheStrip.places
+        @places = VegasParking::TheStrip.places
   end
   
   def spots
@@ -45,6 +45,6 @@ class VegasParking::CLI
   end
   
   def goodbye
-    puts "Thanks for stopping by :) . See ya nextinme!."
+    puts "Thanks for stopping by :) . See ya next Time!."
   end
 end  
