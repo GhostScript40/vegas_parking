@@ -26,7 +26,7 @@ end
      
            if input.to_i > 0
       #puts @places[input.to_i-1]
-      elsif input == "list" || "1"
+      elsif input == "list"
         list_spots
         elsif input == "any"
           any_spot
