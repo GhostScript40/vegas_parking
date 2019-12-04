@@ -22,16 +22,11 @@ class VegasParking::TheStrip
   place_2.url = "https://www.vegas.com/resorts/arizonacharlieseast/"
   place_2.fee = "Free"
   place_2.description = "This garage has very tight turns as you go up the ramp. Be on the lookout for other drivers."
- @@all << [place_1, place_2]
- binding.pry
+    [place_1, place_2]
+ #binding.pry
  end
   
- # def scrape_spots
-  #  spots = []
-   # spots
-    # end
+ def scrape_spots
+   #This method should scrape information from the URL
   end
-  
-  def self.all
-    @@all
-  end
+end
