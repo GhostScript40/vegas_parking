@@ -1,19 +1,22 @@
+require 'pry'
+
 class VegasParking::CLI
   
   attr_accessor :places
   
   def call
     puts "Welcome to Vegas. How can I help you park today?"
- menu
+ list_spots
  spots
   end
   
   def list_spots
+    
     puts "Here is a list of all of the free parking spots at great locations!"
         @places = VegasParking::TheStrip.places
-      # @places.each.with_index(1) do | place, i|        
-      
-  #end
+       @places.each.with_index(1) do | place, i|  
+         puts "#{i} #{place.name} - #{place.description}"
+  end
 end
   
   def spots
@@ -25,7 +28,8 @@ end
         input = gets.strip.downcase
      
            if input.to_i > 0
-      #puts @places[input.to_i-1]
+      parking_spot = @places[input.to_i-1]
+        puts "#{parking_spot.name} - #{parking_spot.description}"
       elsif input == "list"
         list_spots
         elsif input == "any"
@@ -43,6 +47,7 @@ end
   
   def any_spot
     puts "Heres a nice one you may like! Check it out.."
+     
   end
   
   def menu
