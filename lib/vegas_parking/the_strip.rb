@@ -37,8 +37,11 @@ class VegasParking::TheStrip
   
   def self.scrape_vegas
     doc = Nokogiri::HTML(open("https://www.vegas.com/transportation/free-parking-las-vegas/"))
-    binding.pry
+    
+   names = doc.css('p').collect do |pose_type|
+    pose_type.css('a').text
+end 
+     binding.pry
+      scrape_vegas
+    end
   end
-  
-  
-end
