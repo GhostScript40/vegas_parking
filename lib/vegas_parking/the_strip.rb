@@ -32,9 +32,10 @@ class VegasParking::TheStrip
        name.name = name
       end
       
-            #links = doc.css('p a').collect do |web_page|
+            links = doc.xpath('//p/a/@href').collect { |l| l.text.strip }
+     
      #web_page.attribute('href').value
-       #      binding.pry
+       #binding.pry
       #end
       
       describe = doc.css('p').collect {|d| d.text}
@@ -42,10 +43,10 @@ class VegasParking::TheStrip
       describe.delete_at(0)
         binding.pry
         
-        describe.each do |d|
-      name = self.new
-       name.description = description
-      end
+       # describe.each do |d|
+      #description = self.new
+      #name.description = description
+      #end
         
       new_names
 end
