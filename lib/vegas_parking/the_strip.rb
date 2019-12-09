@@ -9,33 +9,44 @@ class VegasParking::TheStrip
   
  end
   
-# def scrape_spots
+ def scrape_spots
    #This method should scrape URL
    #So that I can instantiate the parking spots
    
- #  spaces = []
+   spaces = []
    
-  # spaces << self.scrape_vegas
-   #   spaces
-    #  binding.pry
-  #end
+    spaces << self.scrape_vegas
+      spaces
+ end
   
   def self.scrape_vegas
-     spots = []
+    
   doc = Nokogiri::HTML(open("https://www.vegas.com/transportation/free-parking-las-vegas/"))
      names = doc.css('p').collect do |name|
      name.css('a').text.strip
    end
   new_names = names.reject { |e| e.to_s.empty? }
    
-     names.each do |name|
+     new_names.each do |name|
       name = self.new
        name.name = name
       end
       
-      links = doc.css('p a').collect do |web_page|
-     web_page.attribute('href').value
-             binding.pry
+            #links = doc.css('p a').collect do |web_page|
+     #web_page.attribute('href').value
+       #      binding.pry
+      #end
+      
+      describe = doc.css('p').collect {|d| d.text}
+      describe.pop()
+      describe.delete_at(0)
+        binding.pry
+        
+        describe.each do |d|
+      name = self.new
+       name.description = description
       end
-    end
-  end
+        
+      new_names
+end
+end
