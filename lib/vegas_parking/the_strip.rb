@@ -19,4 +19,5 @@ class VegasParking::TheStrip
     def save
     @@all << self
   end
+binding.pry
 end

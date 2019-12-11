@@ -24,11 +24,9 @@ class VegasParking::Scraper
         description.delete_at(0)                       # This scrapes the description  #
                                                     #                               #
                                                    ##################################    
-      VegasParking::TheStrip.new(name, url, description)
      spots << name
      spots << url
      spots << description
-   
-      spots
+  VegasParking::TheStrip.new(name, url, description)
   end
 end
