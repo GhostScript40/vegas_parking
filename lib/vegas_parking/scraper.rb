@@ -28,7 +28,6 @@ class VegasParking::Scraper
      spots << url
      spots << description
      VegasParking::TheStrip.new(name, url, description)
-        binding.pry
       
   end
 end

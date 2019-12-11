@@ -12,8 +12,8 @@ class VegasParking::CLI
   
   def get_list
       puts "Here is a list of all of the free parking spots at great locations!"
-      VegasParking::Scraper.scrape_spots
-      @places = VegasParking::TheStrip.all
+      VegasParking::Scraper.scrape_vegas
+      @places = VegasParking::scrape_vegas.all
       
 end
   

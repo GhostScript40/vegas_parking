@@ -13,12 +13,12 @@ def initialize(name, url, description)
 end
 
 def self.all
-  VegasParking::Scraper.scrape_spots if @@all.empty?
+  VegasParking::Scraper.scrape_vegas if @@all.empty?
   @@all
 end
 
 def save
   @@all << self
 end
-
+binding.pry
 end
