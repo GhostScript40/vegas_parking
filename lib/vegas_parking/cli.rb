@@ -10,17 +10,18 @@ class VegasParking::CLI
       spots
   end
   
-  def list_spots
+  def get_list
       puts "Here is a list of all of the free parking spots at great locations!"
-      @places = VegasParking::TheStrip.places
-       @places.each.with_index(1) do | place, i|  
-         puts "#{i} #{place.name} - #{place.description}"
-  end
+      VegasParking::Scraper.scrape_spots
+      @places = VegasParking::TheStrip.all
+      
 end
   
-  def spots
+  def list_spots
     puts "Please enter your spot selection. Type 'list' for a list of spots, 'any' for a random selection, or exit to end session."
-    
+     @places.each.with_index(1) do | place, i|  
+         puts "#{i} #{place.name}"
+  end
       input = nil
      
     while input != "exit"
@@ -46,7 +47,7 @@ end
   
   def any_spot
     puts "Heres a nice one you may like! Check it out.."
-     
+     @places.sample
   end
   
   def menu
