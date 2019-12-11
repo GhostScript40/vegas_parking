@@ -13,13 +13,13 @@ class VegasParking::CLI
   def get_list
       puts "Here is a list of all of the free parking spots at great locations!"
       VegasParking::Scraper.scrape_vegas
-      @places = VegasParking::scrape_vegas.all
-      
+      @spots = VegasParking::scrape_vegas
+      binding.pry
 end
   
   def list_spots
     puts "Please enter your spot selection. Type 'list' for a list of spots, 'any' for a random selection, or exit to end session."
-     @places.each.with_index(1) do | place, i|  
+     @spots.each.with_index(1) do | place, i|  
          puts "#{i} #{place.name}"
   end
       input = nil
@@ -28,7 +28,7 @@ end
         input = gets.strip.downcase
      
            if input.to_i > 0
-      parking_spot = @places[input.to_i-1]
+      parking_spot = @spots[input.to_i-1]
         puts "#{parking_spot.name} - #{parking_spot.description}"
       elsif input == "list"
         list_spots
@@ -47,7 +47,7 @@ end
   
   def any_spot
     puts "Heres a nice one you may like! Check it out.."
-     @places.sample
+     @Spots.sample
   end
   
   def menu
