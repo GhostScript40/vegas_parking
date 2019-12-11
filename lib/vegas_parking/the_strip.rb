@@ -14,7 +14,6 @@ class VegasParking::TheStrip
   
       def self.all
       VegasParking::Scraper.scrape_vegas if @@all.empty?
-      @@all
     end
   
     def save
