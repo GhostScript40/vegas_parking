@@ -6,13 +6,13 @@ class VegasParking::CLI
   
   def call
     puts "Welcome to Vegas. How can I help you park today?"
-    get_list
+    list_spots
   end
   
   def get_list
       puts "Here is a list of all of the free parking spots at great locations!"
-      VegasParking::Scraper.scrape_vegas
-      @spots = VegasParking::Scraper.scrape_vegas
+      puts VegasParking::Scraper.places
+      @spots = VegasParking::Scraper.places
      # binding.pry
 end
   
