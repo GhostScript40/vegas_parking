@@ -4,19 +4,19 @@ class VegasParking::CLI
   
   def call
     puts "Welcome to Vegas. How can I help you park today?"
-    select_spot
+   menu
   end
   
   def get_list
       puts "Here is a list of all of the free parking spots at great locations!"
       VegasParking::Scraper.scrape_vegas
-      
+      @spots = VegasParking::TheStrip.all
   end
   
   def list_spots
     puts "Please enter your spot selection. Type 'list' for a list of spots, 'any' for a random selection, or exit to end session."
      @spots = VegasParking::Scraper.scrape_vegas
-     @spots.each.with_index(1) do | place, i| 
+     @spots.each.with_index(1) do | place, i|
            puts "#{i} #{place.text}" 
     end
    end
@@ -30,12 +30,12 @@ class VegasParking::CLI
      
            if input.to_i > 0
       parking_spot = @spots[input.to_i-1]
-        puts "#{parking_spot.name} - #{parking_spot.description}"
-      elsif input == "list"
+        puts "#{parking_spot.text}"
+      elsif input == "list spots"
         list_spots
-        elsif input == "any"
-          any_spot
-        elsif input == "menu"
+        elsif input == "details"
+          information
+        elsif input == "menu" 
           menu
           elsif input == "exit"
           goodbye
@@ -46,18 +46,21 @@ class VegasParking::CLI
     end
   end
   
-  def any_spot
-    puts "Heres a nice one you may like! Check it out.."
-     @Spots.sample
-  end
   
   def menu
-    puts "1. List Spots"
-    puts "2. Random Spot"
-    puts "3. Exit"
+    
+    puts "List Spots"
+    puts "Details"
+    puts "Exit"
+    select_spot
+    end
+  
+  def information
+    VegasParking::Scraper.detail
   end
   
   def goodbye
     puts "Thanks for stopping by :) . See ya next Time!."
   end
-end  
+end
+

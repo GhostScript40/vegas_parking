@@ -11,11 +11,12 @@ class VegasParking::TheStrip
     save
   end
   
-  def self.all
+  def self.all  
     VegasParking::Scraper.scrape_vegas if @@all.empty?
     @@all
   end
-def save
-@@all << self
-end
+  
+    def save
+  @@all << self
+  end
 end
