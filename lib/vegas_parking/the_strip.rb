@@ -1,12 +1,21 @@
 require 'pry'
 class VegasParking::TheStrip
 
-  attr_accessor :name, :url, :description
+@@all = []
+
+  attr_accessor :name, :details
   
-def self.names
-  VegasParking::Scraper.scrape_vegas
+  def initialize(name, details)
+    @name = name
+    @details = details
+    save
+  end
+  
+  def self.all
+    VegasParking::Scraper.scrape_vegas if @@all.empty?
+    @@all
+  end
+def save
+@@all << self
 end
-
-
-
 end
