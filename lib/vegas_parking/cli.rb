@@ -19,11 +19,12 @@ class VegasParking::CLI
     puts "Please enter your spot selection. Type 'list' for a list of spots, 'any' for a random selection, or exit to end session."
      @spots = VegasParking::Scraper.names
      @spots.each.with_index(1) do | place, i|
-           puts "#{i} #{place.text}"
+           puts "#{i} #{place.name}"
     end
    end
    
    def select_spot
+     @info = VegasParking::Scraper.detail
      @spots = VegasParking::Scraper.names
      input = nil
      
@@ -31,7 +32,7 @@ class VegasParking::CLI
         input = gets.strip.downcase
      
            if input.to_i > 0
-      parking_spot = @spots[input.to_i-1]
+      parking_spot = @info[input.to_i-1]
         puts "#{parking_spot.text}"
       elsif input == "list spots"
         list_spots

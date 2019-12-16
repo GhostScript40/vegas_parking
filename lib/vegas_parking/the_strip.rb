@@ -5,7 +5,7 @@ class VegasParking::TheStrip
 
   attr_accessor :name, :details
   
-  def initialize(name, details)
+  def initialize(name)
     @name = name
     @details = details
     save
