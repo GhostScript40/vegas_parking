@@ -7,10 +7,12 @@ class VegasParking::CLI
    menu
   end
   
-  def get_list
-      puts "Here is a list of all of the free parking spots at great locations!"
-      VegasParking::Scraper.scrape_vegas
-      @spots = VegasParking::TheStrip.all
+  def link
+      puts "Here is a list of all of the url's"
+     @url = VegasParking::Scraper.url
+     @url.each.with_index(1) do | link, i|
+           puts "#{i} #{link}" 
+    end
   end
   
   def list_spots
@@ -39,6 +41,8 @@ class VegasParking::CLI
           menu
           elsif input == "exit"
           goodbye
+          elsif input == "link"
+          link
         else
           puts "Your selection was not valid please choose one of the following selections from the menu:"
           menu
@@ -51,12 +55,16 @@ class VegasParking::CLI
     
     puts "List Spots"
     puts "Details"
+    puts "Link"
     puts "Exit"
     select_spot
     end
   
   def information
-    VegasParking::Scraper.detail
+    @info = VegasParking::Scraper.detail
+     @info.each.with_index(1) do | info, i|
+           puts "#{i} #{info.text}" 
+   end
   end
   
   def goodbye

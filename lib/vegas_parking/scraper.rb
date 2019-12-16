@@ -25,9 +25,15 @@ class VegasParking::Scraper
   end
   
   def self.detail
-    doc = Nokogiri::HTML(open("https://www.vegas.com/transportation/free-parking-las-vegas/"))
-     url = doc.xpath('//p/a/@href').text
-     description = doc.css('p').collect {|d| d.text}
-     details = {url: url, description: description}
+     doc = Nokogiri::HTML(open("https://www.vegas.com/transportation/free-parking-las-vegas/"))
+     
+                            info = doc.css("p")
+                            
+end
+
+def self.url
+   doc = Nokogiri::HTML(open("https://www.vegas.com/transportation/free-parking-las-vegas/"))
+   
+   link = doc.xpath('//p/a/@href')
   end
 end
