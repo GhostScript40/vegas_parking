@@ -20,14 +20,10 @@ class VegasParking::Scraper
   def self.detail
      doc = Nokogiri::HTML(open("https://www.vegas.com/transportation/free-parking-las-vegas/"))
      
-                            info = doc.css("p").collect do |i|
-                              details = i.text
-                              VegasParking::TheStrip.new(details)
-                              
-                            end
-                            #info.delete_at(0)
-                            #info.pop()
-                           #info 
+                            info = doc.css("p").collect {|i| i}
+                            info.delete_at(0)
+                            info.pop()
+                            info
   end
 
 def self.url

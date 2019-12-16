@@ -4,7 +4,8 @@ class VegasParking::CLI
   
   def call
     puts "Welcome to Vegas. How can I help you park today?"
-   menu
+   list_spots
+   select_spot
   end
   
   def link
@@ -26,6 +27,7 @@ class VegasParking::CLI
    def select_spot
      @info = VegasParking::Scraper.detail
      @spots = VegasParking::Scraper.names
+     @url = VegasParking::Scraper.url
      input = nil
      
     while input != "exit"
@@ -33,7 +35,8 @@ class VegasParking::CLI
      
            if input.to_i > 0
       parking_spot = @info[input.to_i-1]
-        puts "#{parking_spot}"
+      website = @url[input.to_i-1]
+        puts "#{parking_spot.text} -- #{website}"
       elsif input == "list spots"
         list_spots
         elsif input == "details"
@@ -64,7 +67,7 @@ class VegasParking::CLI
   def information
     @info = VegasParking::Scraper.detail
      @info.each.with_index(1) do | info, i|
-           puts "#{i} #{info}" 
+           puts "#{i} #{info.text}" 
    end
   end
   
