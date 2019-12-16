@@ -33,7 +33,7 @@ class VegasParking::CLI
      
            if input.to_i > 0
       parking_spot = @info[input.to_i-1]
-        puts "#{parking_spot.text}"
+        puts "#{parking_spot}"
       elsif input == "list spots"
         list_spots
         elsif input == "details"
@@ -64,7 +64,7 @@ class VegasParking::CLI
   def information
     @info = VegasParking::Scraper.detail
      @info.each.with_index(1) do | info, i|
-           puts "#{i} #{info.text}" 
+           puts "#{i} #{info}" 
    end
   end
   

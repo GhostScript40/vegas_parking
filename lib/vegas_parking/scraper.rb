@@ -9,16 +9,25 @@ class VegasParking::Scraper
       
                             spots = doc.css("p a").collect do |n|
                             name = n.text
-                            VegasParking::TheStrip.new(name)
+                              VegasParking::TheStrip.new(name)
                             end
-                            binding.pry
-                          
+                         spots.delete_at(1)
+                         spots.delete_at(4)
+                         spots
+                  
   end
   
   def self.detail
      doc = Nokogiri::HTML(open("https://www.vegas.com/transportation/free-parking-las-vegas/"))
      
-                            info = doc.css("p")
+                            info = doc.css("p").collect do |i|
+                              details = i.text
+                              VegasParking::TheStrip.new(details)
+                              
+                            end
+                            #info.delete_at(0)
+                            #info.pop()
+                           #info 
   end
 
 def self.url
