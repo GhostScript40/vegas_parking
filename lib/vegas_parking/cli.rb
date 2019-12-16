@@ -17,14 +17,14 @@ class VegasParking::CLI
   
   def list_spots
     puts "Please enter your spot selection. Type 'list' for a list of spots, 'any' for a random selection, or exit to end session."
-     @spots = VegasParking::Scraper.scrape_vegas
+     @spots = VegasParking::Scraper.names
      @spots.each.with_index(1) do | place, i|
-           puts "#{i} #{place.text}" 
+           puts "#{i} #{place.text}"
     end
    end
    
    def select_spot
-     @spots = VegasParking::Scraper.scrape_vegas
+     @spots = VegasParking::Scraper.names
      input = nil
      
     while input != "exit"

@@ -3,33 +3,29 @@ class VegasParking::Scraper
   
   attr_accessor :name, :info
   
+  def self.everything
+    doc = Nokogiri::HTML(open("https://www.vegas.com/transportation/free-parking-las-vegas/"))
+      
+                            name = doc.css("p a").text
+                            description = doc.css("p").text
+                            url = doc.xpath('//p/a/@href').text
+                            details = {url: url, description: description}
+                            VegasParking::TheStrip.new(name, details)
+  end
   
-  def self.scrape_vegas
+  def self.names
     
             doc = Nokogiri::HTML(open("https://www.vegas.com/transportation/free-parking-las-vegas/"))
       
-                            spots = doc.css("div p a")
-                            
-                            spots.each do |s|
-                            name = doc.css('p a').text.strip  
-                            
-                            url = s.xpath('//p/a/@href').text
-                            
-                            description = doc.css('p').collect {|d| d.text}
-                            
-                            details = {url: url, description: description}
-                            VegasParking::TheStrip.new(name, details)
-                      
-      
-    end
+                            spots = doc.css("p a")
+                          
   end
   
   def self.detail
      doc = Nokogiri::HTML(open("https://www.vegas.com/transportation/free-parking-las-vegas/"))
      
                             info = doc.css("p")
-                            
-end
+  end
 
 def self.url
    doc = Nokogiri::HTML(open("https://www.vegas.com/transportation/free-parking-las-vegas/"))
