@@ -4,6 +4,14 @@ Welcome to the Vegas Parking CLI. With the new parking rules at alost all of the
 
 ## Installation
 
+Installation is quite simple.Installing a gem from a Git repository is going to be a 4 step process.
+
+Clone the Git repository at the git repository.
+Change to the new directory "cd vegas_parking".
+Build the gem....Remember you'll need Nokogiri & open Url. So make sure to require them and hit Bundle install.
+Install the gem...
+To install this gem onto your local machine, run `bundle exec rake install`.
+
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -20,7 +28,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Once the gem is executed "bin/vegas_parking"....You'll be presented with a list of parking options. Choose the associated number for more information on said link. Or choose from the menu by typing menu at any time. You can type details for a list of all casino details, link for all links or choose list spots to be presented with a list of casinos to get specific information.
 
 ## Development
 
@@ -35,6 +43,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/'since
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+https://github.com/GhostScript40/vegas_parking/blob/master/LICENSE.txt
 
 ## Code of Conduct
 
