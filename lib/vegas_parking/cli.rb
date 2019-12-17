@@ -11,7 +11,9 @@ class VegasParking::CLI
   end
   
   def link
-      puts "Here is a list of all of the url's"
+      puts"####################################"
+      puts"#Here is a list of all of the url's#"
+      puts"####################################"
      @url = VegasParking::Scraper.url
      @url.each.with_index(1) do | link, i|
            puts "#{i} #{link}" 
@@ -19,12 +21,13 @@ class VegasParking::CLI
   end
   
   def list_spots
-  puts  "Please enter your spot selection. Type 'list spots' => for a list of spots; 'Details' => for more info; Link => for the      website; or exit to end session."
+  puts  "Please enter your spot selection. Type 'list spots' => for a list of spots; 'Details' => for more info; Link => for the      website; Menu at anytime or exit to end session."
      @spots = VegasParking::Scraper.names
      @spots.each.with_index(1) do | place, i|
            puts "#{i} #{place.name}"
     end
           puts "***Pick a number any number :) ***"
+          puts "***Remember, you can press menu at anytime***" 
    end
    
    def select_spot
