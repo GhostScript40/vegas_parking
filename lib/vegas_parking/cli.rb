@@ -73,6 +73,7 @@ class VegasParking::CLI
   
   def goodbye
     puts "Thanks for stopping by :) . See ya next Time!."
+    exit!
   end
 end
 
