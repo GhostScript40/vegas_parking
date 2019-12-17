@@ -24,6 +24,7 @@ class VegasParking::CLI
      @spots.each.with_index(1) do | place, i|
            puts "#{i} #{place.name}"
     end
+          puts "***Pick a number any number :) ***"
    end
    
    def select_spot

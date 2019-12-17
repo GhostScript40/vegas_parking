@@ -3,11 +3,10 @@ class VegasParking::TheStrip
 
 @@all = []
 
-  attr_accessor :name, :details
+  attr_accessor :name
   
   def initialize(name)
     @name = name
-    @details = details
     save
   end
   

@@ -1,7 +1,7 @@
   require 'pry'
 class VegasParking::Scraper
   
-  attr_accessor :name, :details
+  attr_accessor :name
   
   def self.names
     
@@ -13,6 +13,8 @@ class VegasParking::Scraper
                             end
                          spots.delete_at(1)
                          spots.delete_at(4)
+                         spots.delete_at(2)
+                         spots.delete_at(1)
                          spots
                   
   end
@@ -23,12 +25,16 @@ class VegasParking::Scraper
                             info = doc.css("p").collect {|i| i}
                             info.delete_at(0)
                             info.pop()
+                            info.delete_at(1)
                             info
   end
 
 def self.url
    doc = Nokogiri::HTML(open("https://www.vegas.com/transportation/free-parking-las-vegas/"))
    
-   link = doc.xpath('//p/a/@href')
+   link = doc.xpath('//p/a/@href').collect {|l| l}
+   link.delete_at(1)
+   link.delete_at(1)
+   link
   end
 end
