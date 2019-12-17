@@ -1,8 +1,6 @@
 # VegasParking
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/vegas_parking`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the Vegas Parking CLI. With the new parking rules at alost all of the casinos in La Vegas. I thought it would add a little more convenience to visitors to this crowded city. You'll be presented with a numbered list of casinos; by pressing the associated number you'll be given the information of that casino. ALL of the parking in this gem are FREE! So there is noo need to worry about paying a parking fee or being towed. You'll also be givin links to the casino for added convenience of checking out its hotels accomadations and ammenities. Some of these parking areas even have car washes. See below for usage instructions.
 
 ## Installation
 
