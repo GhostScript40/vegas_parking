@@ -3,7 +3,9 @@ require 'pry'
 class VegasParking::CLI
   
   def call
-    puts "Welcome to Vegas. How can I help you park today?"
+    puts "###################################################"
+    puts "# Welcome to Vegas. How can I help you park today?#"
+    puts "###################################################"        
    list_spots
    select_spot
   end
@@ -17,7 +19,7 @@ class VegasParking::CLI
   end
   
   def list_spots
-    puts "Please enter your spot selection. Type 'list' for a list of spots, 'any' for a random selection, or exit to end session."
+  puts  "Please enter your spot selection. Type 'list spots' => for a list of spots; 'Details' => for more info; Link => for the      website; or exit to end session."
      @spots = VegasParking::Scraper.names
      @spots.each.with_index(1) do | place, i|
            puts "#{i} #{place.name}"
